@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BerberistanWeb.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterBarber.aspx.cs" Inherits="BerberistanWeb.RegisterBarber" %>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Berberistan - Kaydol!</title>
+    <title>Berberistan - Bayilik Oluştur!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Required meta tags -->
@@ -34,35 +34,20 @@
         <div class="inner">
             <img src="images/a.png" alt="" class="image-1">
             <form action="" runat="server">
-                <h3>Yeni hesap?</h3>
+                <h3>Yeni bayilik?</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input id="txt_Username" runat="server" type="text" class="form-control" placeholder="Kullanıcı Adı">
+                    <input id="txt_Username" runat="server" type="text" class="form-control" placeholder="Bayi Sahibi - Kullanıcı Adı">
                 </div>
                 <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input id="txt_Name" runat="server" type="text" class="form-control" placeholder="Ad">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input id="txt_Surname" runat="server" type="text" class="form-control" placeholder="Soyad">
+                    <span class="lnr lnr-home"></span>
+                    <input id="txt_DealerName" runat="server" type="text" class="form-control" placeholder="Bayi Adı">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-phone-handset"></span>
                     <input id="txt_PhoneNumber" runat="server" type="text" class="form-control" placeholder="Telefon Numarası">
                 </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-envelope"></span>
-                    <input id="txt_MailAddress" runat="server" type="text" class="form-control" placeholder="Mail Adresi">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input id="txt_Password" runat="server" type="password" class="form-control" placeholder="Şifre">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input id="txt_AgainPassword" runat="server" type="password" class="form-control" placeholder="Yeniden Şifre">
-                </div>
+              
                 <div class="form-holder">
                     <span class="lnr lnr-apartment"></span>
                     <input id="txt_City" runat="server" type="text" class="form-control" placeholder="İl">
@@ -71,7 +56,6 @@
                     <span class="lnr lnr-apartment"></span>
                     <input id="txt_District" runat="server" type="text" class="form-control" placeholder="İlçe">
                 </div>
-
 
                 <asp:Button ID="Button_Register" runat="server" CssClass="buttonII" Text="Kaydol" OnClick="Button_Register_Click" />
 

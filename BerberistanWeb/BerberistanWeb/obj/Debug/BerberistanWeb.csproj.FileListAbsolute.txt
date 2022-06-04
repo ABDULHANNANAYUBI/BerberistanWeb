@@ -111,8 +111,8 @@ C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.csprojAssemblyReference.cache
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.csproj.CoreCompileInputs.cache
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.csproj.CopyComplete
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.dll
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.pdb
+C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.csprojAssemblyReference.cache
