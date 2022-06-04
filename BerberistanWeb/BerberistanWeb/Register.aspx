@@ -75,7 +75,7 @@
 
                 <asp:Button ID="Button_Register" runat="server" CssClass="buttonII" Text="Kaydol" OnClick="Button_Register_Click" />
 
-                <div id="div_Success" runat="server" class="alert alert-success mt-3" role="alert" hidden="hidden">
+                <div id="div_Success" runat="server" class="alert alert-success mt-3" role="alert" Visible="false">
                     Kayıt başarıyla oluşturuldu! <a href="..."> Giriş sayfasına dön!</a>
                 </div>
 

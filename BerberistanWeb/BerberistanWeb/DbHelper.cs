@@ -30,7 +30,7 @@ namespace BerberistanWeb
                 using (SqlCommand insertCommand = connection.CreateCommand())
 
                 {
-                    insertCommand.CommandText = "INSERT INTO User (UserName, Password, PhoneNumber, City, District, MailAddress, Name, Surname) VALUES (@UserName, @Password, @PhoneNumber, @City, @District, @MailAddress, @Name, @Surname)";
+                    insertCommand.CommandText = "INSERT INTO [User](UserName, Password, PhoneNumber, City, District, MailAddress, Name, Surname) VALUES (@UserName, @Password, @PhoneNumber, @City, @District, @MailAddress, @Name, @Surname)";
                     insertCommand.Parameters.Add("@UserName", user.UserName);
                     insertCommand.Parameters.Add("@Password", user.Password);
                     insertCommand.Parameters.Add("@PhoneNumber", user.PhoneNumber);
