@@ -79,6 +79,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment.cs" />
+    <Compile Include="DbHelper.cs" />
+    <Compile Include="Dealer.cs" />
+    <Compile Include="DealerService.cs" />
+    <Compile Include="DealerService_Dealer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -87,6 +92,7 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css.map" />

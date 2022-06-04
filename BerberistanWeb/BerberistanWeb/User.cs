@@ -15,6 +15,7 @@ namespace BerberistanWeb
         private string surname;
         private string city;
         private string district;
+        private string phoneNumber;
 
         public int UserID { get => userID; set => userID = value; }
         public string UserName { get => userName; set => userName = value; }
@@ -24,8 +25,11 @@ namespace BerberistanWeb
         public string Surname { get => surname; set => surname = value; }
         public string City { get => city; set => city = value; }
         public string District { get => district; set => district = value; }
+        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
 
-        public User(int userID, string userName, string password, string mailAddress, string name, string surname, string city, string district)
+        public User() { }
+
+        public User(int userID, string userName, string password, string mailAddress, string name, string surname, string city, string district, string phoneNumber)
         {
             this.userID = userID;
             this.userName = userName;
@@ -35,6 +39,7 @@ namespace BerberistanWeb
             this.surname = surname;
             this.city = city;
             this.district = district;
+            this.phoneNumber = phoneNumber;
         }
 
     }
