@@ -32,9 +32,16 @@ namespace BerberistanWeb
                 District = txt_District.Value
             };
 
+            SaveUserToSession(user);
+
             if (dbHelper.AddNewUser(user))
                 div_Success.Visible = true;
 
+        }
+
+        private void SaveUserToSession(User user)
+        {
+            Session["User"] = user;
         }
     }
 }

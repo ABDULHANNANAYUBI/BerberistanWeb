@@ -25,6 +25,8 @@ namespace BerberistanWeb
         public int UserUserID { get => userUserID; set => userUserID = value; }
         public string MailAddress { get => mailAddress; set => mailAddress = value; }
 
+        public Dealer() { }
+
         public Dealer(int dealerID, string dealerName, string phoneNumber, string city, string district, Byte[] photo, int userUserID, string mailAddress)
         {
             this.dealerID = dealerID;

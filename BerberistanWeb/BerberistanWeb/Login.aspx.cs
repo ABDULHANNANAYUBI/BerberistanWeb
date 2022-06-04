@@ -11,11 +11,23 @@ namespace BerberistanWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            User user = (User)Session["User"];
+
+            if (user != null)
+                Response.Redirect("Home.aspx");
 
         }
         protected void Button_Login_Click(object sender, EventArgs e)
         {
+            DbHelper dbHelper = new DbHelper();
 
+            User user = dbHelper.GetUser(txt_Username.Value, txt_Password.Value);
+            SaveUserToSession(user);
+        }
+
+        private void SaveUserToSession(User user)
+        {
+            Session["User"] = user;
         }
     }
 }
