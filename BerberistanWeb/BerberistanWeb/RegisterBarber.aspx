@@ -36,10 +36,6 @@
             <form action="" runat="server">
                 <h3>Yeni bayilik?</h3>
                 <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input id="txt_Username" runat="server" type="text" class="form-control" placeholder="Bayi Sahibi - Kullanıcı Adı">
-                </div>
-                <div class="form-holder">
                     <span class="lnr lnr-home"></span>
                     <input id="txt_DealerName" runat="server" type="text" class="form-control" placeholder="Bayi Adı">
                 </div>
@@ -57,7 +53,7 @@
                     <input id="txt_District" runat="server" type="text" class="form-control" placeholder="İlçe">
                 </div>
 
-                <asp:Button ID="Button_Register" runat="server" CssClass="buttonII" Text="Kaydol" OnClick="Button_Register_Click" />
+                <asp:Button ID="Button_RegisterBarber" runat="server" CssClass="buttonII" Text="Kaydol" OnClick ="Button_RegisterBarber_Click"/>
 
                 <div id="div_Success" runat="server" class="alert alert-success mt-3" role="alert" Visible="false">
                     Kayıt başarıyla oluşturuldu! <a href="..."> Giriş sayfasına dön!</a>

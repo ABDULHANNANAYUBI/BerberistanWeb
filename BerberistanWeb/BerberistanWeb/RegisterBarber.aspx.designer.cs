@@ -15,15 +15,6 @@ namespace BerberistanWeb
     {
 
         /// <summary>
-        /// txt_Username control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_Username;
-
-        /// <summary>
         /// txt_DealerName control.
         /// </summary>
         /// <remarks>
@@ -60,13 +51,13 @@ namespace BerberistanWeb
         protected global::System.Web.UI.HtmlControls.HtmlInputText txt_District;
 
         /// <summary>
-        /// Button_Register control.
+        /// Button_RegisterBarber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Register;
+        protected global::System.Web.UI.WebControls.Button Button_RegisterBarber;
 
         /// <summary>
         /// div_Success control.

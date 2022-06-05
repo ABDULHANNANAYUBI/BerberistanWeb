@@ -63,12 +63,12 @@ namespace BerberistanWeb
                 using (SqlCommand insertCommand = connection.CreateCommand())
 
                 {
-                    insertCommand.CommandText = "INSERT INTO [User](DealerName, PhoneNumber, City, District, Photo, UserUserID) VALUES (@DealerName, @PhoneNumber, @City, @District, @Photo, @UserUserID)";
+                    insertCommand.CommandText = "INSERT INTO [User](DealerName, PhoneNumber, City, District, UserUserID) VALUES (@DealerName, @PhoneNumber, @City, @District, @UserUserID)";
                     insertCommand.Parameters.Add("@DealerName", dealer.DealerName);
                     insertCommand.Parameters.Add("@PhoneNumber", dealer.PhoneNumber);
                     insertCommand.Parameters.Add("@City", dealer.City);
                     insertCommand.Parameters.Add("@District", dealer.District);
-                    insertCommand.Parameters.Add("@Photo", dealer.Photo);
+                   // insertCommand.Parameters.Add("@Photo", dealer.Photo);
                     insertCommand.Parameters.Add("@UserUserID", dealer.UserUserID);
 
                     insertCommand.Connection.Open();

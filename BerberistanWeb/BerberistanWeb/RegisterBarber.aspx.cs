@@ -16,14 +16,13 @@ namespace BerberistanWeb
           
 
         }
-        protected void Button_Register_Click(object sender, EventArgs e)
+        protected void Button_RegisterBarber_Click(object sender, EventArgs e)
         {
             DbHelper dbHelper = new DbHelper();
 
             Dealer dealer = new Dealer()
             {
-                DealerName = txt_Username.Value,
-                Photo = null,
+                DealerName = txt_DealerName.Value,
                 UserUserID = ((User)(Session["User"])).UserID,
                 PhoneNumber = txt_PhoneNumber.Value,
                 City = txt_City.Value,
@@ -31,7 +30,7 @@ namespace BerberistanWeb
 
             };
 
-
+            dbHelper.AddNewDealer(dealer);
         }
     }
 }
