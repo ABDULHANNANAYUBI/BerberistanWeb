@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="images/icons/berberistan.ico">
     <title></title>
 </head>
-<body style="background:url(images/pexels-pixabay-220182.jpg) repeat">
+<body style="background: url(images/pexels-pixabay-220182.jpg) repeat">
     <section class="ftco-section">
 
 
@@ -37,9 +39,9 @@
 
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active"><a href="#" class="nav-link">Ana Sayfa</a></li>
+                        <li class="nav-item active"><a href="#" class="nav-link"><strong>Ana Sayfa</strong></a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Page</strong></a>
                             <div class="dropdown-menu" aria-labelledby="dropdown04">
                                 <a class="dropdown-item" href="#">Page 1</a>
                                 <a class="dropdown-item" href="#">Page 2</a>
@@ -47,11 +49,18 @@
                                 <a class="dropdown-item" href="#">Page 4</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Berberistan Hakkında</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Profilim</a></li>
-                        <li class="nav-item"><a href="RegisterBarber.aspx" class="nav-link">Yeni Bayilik</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Bayiliğim</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><strong>Berberistan Hakkında</strong></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><strong>Profilim</strong></a></li>
+                        <li class="nav-item"><a href="RegisterBarber.aspx" class="nav-link"><strong>Yeni Bayilik</strong></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><strong>Bayiliğim</strong></a></li>
+
                     </ul>
+                    <div class="social-media ml-auto">
+                        <p class="mb-0 d-flex">
+                            <a href="Login.aspx" class="d-flex align-items-center justify-content-center ml-auto">
+                                <img style="width: 21px; height: 21px;" src="images/icons/arrow-right-from-bracket-solid.svg"><i class="sr-only">Exit</i></img></a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -69,20 +78,19 @@
         <div style="margin: 0 auto 0 200px">
             <h6 class="my-3"><strong>Hangi bayiden randevu almak istersiniz?</strong></h6>
 
-            <input class="mt-0 mb-0 mr-3" type="text" style="width: 50%; float: left; height: 40px;" placeholder="Hangi bayiden randevu almak istersiniz?">
-            <button type="submit" class="button mt-0" style="width: 15%; height: 40px; float:left;">
-                <i class="fa fa-search"></i>
-            </button>
-            <img src="images/image-1.png" width="170" height="170" style="margin:-120px 0 0 10px"/>
+            <input class="mt-0 mb-0 mr-3" id="txt_SearchInput" runat="server" type="text" style="width: 50%; float: left; height: 40px;" placeholder="Hangi bayiden randevu almak istersiniz?" />
+            <asp:LinkButton ID="LinkButton_Search" OnClick="LinkButton_Search_Click" CssClass="buttonII mt-0" Style="width: 15%; height: 40px; float: left;" runat="server"><i class="fa fa-search"></i></asp:LinkButton>
+
+            <img src="images/image-1.png" width="170" height="170" style="margin: -120px 0 0 10px" />
         </div>
 
         <div class="container mt-4">
             <div class="row">
                 <%
 
+                    int resultCount = dealerSearchResults.Count == 0 ? 9 : dealerSearchResults.Count;
 
-
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < resultCount; i++)
                     {
                 %>
 
@@ -90,9 +98,9 @@
                     <div class="card mx-2 my-2" style="width: 23rem;">
                         <img class="card-img-top" src="images/allef-vinicius-IvQeAVeJULw-unsplash.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title"><%= dealerSearchResults[i].DealerName %></h5>
+                            <p class="card-text" style="margin: -20px 0 0 0"><%= (dealerSearchResults[i].District + " / " + dealerSearchResults[i].City) %></p>
+                            <a href="#" class="buttonII btn-primary mt-1">Bayiyi incele</a>
                         </div>
                     </div>
                 </div>

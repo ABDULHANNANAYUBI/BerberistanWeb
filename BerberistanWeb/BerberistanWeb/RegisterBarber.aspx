@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="images/icons/berberistan.ico">
+
     <meta charset="utf-8">
     <title>Berberistan - Bayilik Oluştur!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

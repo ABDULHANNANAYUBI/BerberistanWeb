@@ -11,7 +11,7 @@ namespace BerberistanWeb
 {
 
 
-    public partial class Home
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -24,21 +24,12 @@ namespace BerberistanWeb
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txt_SearchInput control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_SearchInput;
-
-        /// <summary>
-        /// LinkButton_Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton_Search;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
     }
 }

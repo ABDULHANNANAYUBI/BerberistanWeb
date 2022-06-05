@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Configuration;
 
@@ -68,7 +69,7 @@ namespace BerberistanWeb
                     insertCommand.Parameters.Add("@PhoneNumber", dealer.PhoneNumber);
                     insertCommand.Parameters.Add("@City", dealer.City);
                     insertCommand.Parameters.Add("@District", dealer.District);
-                   // insertCommand.Parameters.Add("@Photo", dealer.Photo);
+                    // insertCommand.Parameters.Add("@Photo", dealer.Photo);
                     insertCommand.Parameters.Add("@UserUserID", dealer.UserUserID);
 
                     insertCommand.Connection.Open();
@@ -83,6 +84,38 @@ namespace BerberistanWeb
             else
                 return false;
 
+        }
+
+        public List<Dealer> GetSearchResultDealer(string inputText)
+        {
+            List<Dealer> searchResults = new List<Dealer>();
+            Dealer dealer = null;
+
+            connection.Open();
+
+            SqlCommand command = new SqlCommand("SELECT DealerID, DealerName, PhoneNumber, City, District, Photo, UserUserID FROM [Dealer] WHERE DealerName LIKE '%" + inputText + "%'", connection);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    dealer = new Dealer()
+                    {
+                        DealerID = Convert.ToInt32(reader["DealerID"].ToString()),
+                        DealerName = reader["DealerName"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
+                        City = reader["City"].ToString(),
+                        District = reader["District"].ToString(),
+                        Photo = Encoding.ASCII.GetBytes(reader["Photo"].ToString()),
+                        UserUserID = Convert.ToInt32(reader["UserUserID"].ToString()),
+                    };
+                    searchResults.Add(dealer);
+                }
+            }
+
+            connection.Close();
+
+            return searchResults;
         }
 
         public User GetUser(string userName, string password)
