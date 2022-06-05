@@ -49,7 +49,8 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Berberistan Hakkında</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Profilim</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Bayilik</a></li>
+                        <li class="nav-item"><a href="RegisterBarber.aspx" class="nav-link">Yeni Bayilik</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Bayiliğim</a></li>
                     </ul>
                 </div>
             </div>

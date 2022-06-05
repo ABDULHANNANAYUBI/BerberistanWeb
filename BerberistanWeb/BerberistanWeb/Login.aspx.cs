@@ -23,6 +23,11 @@ namespace BerberistanWeb
 
             User user = dbHelper.GetUser(txt_Username.Value, txt_Password.Value);
             SaveUserToSession(user);
+
+            if(user != null)
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
 
         private void SaveUserToSession(User user)
