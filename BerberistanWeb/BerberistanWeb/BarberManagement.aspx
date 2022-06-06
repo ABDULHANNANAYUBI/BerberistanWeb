@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BerberistanWeb.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BarberManagement.aspx.cs" Inherits="BerberistanWeb.BarberManagement" %>
 
 <!DOCTYPE html>
 
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="icon" href="images/icons/berberistan.ico">
-    <title></title>
+    <title><%= dealer.DealerName %> - Bayilik Yönetim Paneli</title>
 </head>
 <body>
     <section class="ftco-section">
@@ -52,8 +52,7 @@
                         <li class="nav-item"><a href="#" class="nav-link"><strong>Berberistan Hakkında</strong></a></li>
                         <li class="nav-item"><a href="#" class="nav-link"><strong>Profilim</strong></a></li>
                         <li class="nav-item"><a href="RegisterBarber.aspx" class="nav-link"><strong>Yeni Bayilik</strong></a></li>
-                        <li class="nav-item"><a href="BarberManagement.aspx" class="nav-link"><strong>Bayiliğim</strong></a></li>
-
+                        <li class="nav-item"><a href="#" class="nav-link"><strong>Bayiliğim</strong></a></li>
 
                     </ul>
                     <div class="social-media ml-auto">
@@ -77,41 +76,38 @@
     <form id="form1" runat="server">
 
         <div style="margin: 0 auto 0 200px">
-            <h6 class="my-3"><strong>Hangi bayiden randevu almak istersiniz?</strong></h6>
+            <h6 style="font-size: 40px; color: black" class="my-3"><strong><%= (dealer.DealerName) + " Bayisi Yönetim Paneli" %></strong></h6>
+            <h6 class="mt-0 mb-3"><strong><%= (dealer.District + "/" + dealer.City + " - " + dealer.PhoneNumber + " - (" + dealer.MailAddress+")") %></strong></h6>
+            <h6 style="font-size: 20px;" class="my-3"><strong>Eklemek istediğiniz hizmeti giriniz:</strong></h6>
 
-            <input class="mt-0 mb-0 mr-3" id="txt_SearchInput" runat="server" type="text" style="width: 50%; float: left; height: 40px;" placeholder="Hangi bayiden randevu almak istersiniz?" />
-            <asp:LinkButton ID="LinkButton_Search" OnClick="LinkButton_Search_Click" CssClass="buttonII mt-0" Style="width: 15%; height: 40px; float: left;" runat="server"><i class="fa fa-search"></i></asp:LinkButton>
+            <input class="mt-0 mb-0 mr-3" id="txt_ServiceName" runat="server" type="text" style="width: 20%; float: left; height: 40px;" placeholder="Hizmet adı" />
+            <input class="mt-0 mb-0 mr-3 mt-2" id="txt_ServiceFee" runat="server" type="text" style="width: 20%; clear: both; float: left; height: 40px;" placeholder="Hizmet ücreti" />
 
-            <img src="images/image-1.png" width="170" height="170" style="margin: -120px 0 0 10px" />
-        </div>
+            <input class="mt-0 mb-0 mr-3 mt-2" id="txt_ServiceTimeMinutes" runat="server" type="text" style="width: 20%; clear: both; float: left; height: 40px;" placeholder="Tahmini hizmet süresi" />
+            <asp:LinkButton ID="LinkButton_AddNewService" OnClick="LinkButton_AddNewService_Click" CssClass="buttonII mt-2" Style="width: 5%; height: 40px; float: left;" runat="server"><i class="fa fa-plus"></i></asp:LinkButton>
 
-        <div class="container mt-4">
-            <div class="row">
+
+            <ul class="list-group">
                 <%
-
-                    int resultCount = dealerSearchResults.Count == 0 ? 9 : dealerSearchResults.Count;
-
-                    for (int i = 0; i < resultCount; i++)
+                    if (dealerServices.Count != 0)
                     {
-                %>
-
-                <div class="col-4">
-                    <div class="card mx-2 my-2" style="width: 23rem;">
-                        <img class="card-img-top" src="images/allef-vinicius-IvQeAVeJULw-unsplash.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= dealerSearchResults[i].DealerName %></h5>
-                            <p class="card-text" style="margin: -20px 0 0 0"><%= (dealerSearchResults[i].District + " / " + dealerSearchResults[i].City) %></p>
-                            <a href="#" class="buttonII btn-primary mt-1">Bayiyi incele</a>
-                        </div>
-                    </div>
-                </div>
-
+                        for (int i = 0; i < dealerServices.Count; i++)
+                        {
+                %><li class="list-group-item ml-5" style="width: 40rem;"><%= (dealerServices[i].ServiceName + " - Ortalama Hizmet Süresi: "+dealerServices[i].ServiceTimeMinutes + " ("+dealerServices[i].ServiceFee+"₺) - " + dealer.DealerName +" Bayisi" ) %></li>
                 <%
+                        }
                     }
 
 
+
                 %>
-            </div>
+            </ul>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 

@@ -41,12 +41,18 @@
                     <span class="lnr lnr-user"></span>
                     <input id="txt_Username" runat="server" type="text" class="form-control" placeholder="Kullanıcı Adı">
                 </div>
-                
+
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
                     <input id="txt_Password" runat="server" type="password" class="form-control" placeholder="Şifre">
                 </div>
-                <asp:Button ID="Button_Login" runat="server" CssClass="buttonII" Text="Giriş" OnClick ="Button_Login_Click" />
+                <asp:Button ID="Button_Login" runat="server" CssClass="buttonII" Text="Giriş" OnClick="Button_Login_Click" />
+                <div class="row mx-auto">
+                    <div class="col-9 mx-auto">
+                        <a class="" href="Register.aspx">Henüz bir üyeliğiniz yok mu?</a>
+                    </div>
+
+                </div>
 
             </form>
             <img src="images/image-2.png" alt="" class="image-2">

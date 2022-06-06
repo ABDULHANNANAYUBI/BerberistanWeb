@@ -13,6 +13,8 @@ namespace BerberistanWeb
         public int DealerServiceServiceID { get => dealerServiceServiceID; set => dealerServiceServiceID = value; }
         public int DealerDealerID { get => dealerDealerID; set => dealerDealerID = value; }
 
+        public DealerService_Dealer() { }
+
         public DealerService_Dealer(int dealerServiceServiceID, int dealerDealerID)
         {
             this.dealerServiceServiceID = dealerServiceServiceID;

@@ -12,6 +12,7 @@ namespace BerberistanWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             User user = (User)Session["User"];
+            Dealer dealer = (Dealer)Session["Dealer"];
 
             if (user != null)
                 Response.Redirect("Home.aspx");
@@ -22,7 +23,10 @@ namespace BerberistanWeb
             DbHelper dbHelper = new DbHelper();
 
             User user = dbHelper.GetUser(txt_Username.Value, txt_Password.Value);
+            Dealer dealer = dbHelper.GetDealer(user.UserID);
+
             SaveUserToSession(user);
+            SaveDealerToSession(dealer);
 
             if(user != null)
             {
@@ -33,6 +37,11 @@ namespace BerberistanWeb
         private void SaveUserToSession(User user)
         {
             Session["User"] = user;
+        }
+
+        private void SaveDealerToSession(Dealer dealer)
+        {
+            Session["Dealer"] = dealer;
         }
     }
 }

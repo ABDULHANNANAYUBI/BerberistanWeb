@@ -11,6 +11,7 @@ namespace BerberistanWeb
     {
         protected List<Dealer> dealerSearchResults = new List<Dealer>();
         DbHelper dbHelper = new DbHelper();
+        protected User user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,6 +19,7 @@ namespace BerberistanWeb
             //    Response.Redirect("Login.aspx");
 
             dealerSearchResults = dbHelper.GetSearchResultDealer("");
+            user = (User)Session["User"];
         }
 
         protected void LinkButton_Search_Click(object sender, EventArgs e)

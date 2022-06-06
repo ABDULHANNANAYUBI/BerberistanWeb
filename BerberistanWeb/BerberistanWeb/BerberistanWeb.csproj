@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BarberManagement.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bootstrap\mixins\_border-radius.css" />
@@ -98,10 +99,16 @@
     <Content Include="Register.aspx" />
     <Content Include="RegisterBarber.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
+    <Compile Include="BarberManagement.aspx.cs">
+      <DependentUpon>BarberManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BarberManagement.aspx.designer.cs">
+      <DependentUpon>BarberManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DbHelper.cs" />
     <Compile Include="Dealer.cs" />
     <Compile Include="DealerService.cs" />
@@ -136,13 +143,6 @@
       <DependentUpon>RegisterBarber.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css.map" />

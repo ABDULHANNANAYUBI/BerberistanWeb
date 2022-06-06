@@ -86,6 +86,98 @@ namespace BerberistanWeb
 
         }
 
+        public bool AddNewDealerService(DealerService dealerService, Dealer dealer)
+        {
+            int result;
+            using (connection)
+            {
+
+                using (SqlCommand insertCommand = connection.CreateCommand())
+
+                {
+                    insertCommand.CommandText = "INSERT INTO [DealerService](ServiceName, ServiceTimeMinutes, ServiceFee, DealerDealerID) VALUES (@ServiceName, @ServiceTimeMinutes, @ServiceFee, @DealerDealerID)";
+                    insertCommand.Parameters.Add("@ServiceName", dealerService.ServiceName);
+                    insertCommand.Parameters.Add("@ServiceTimeMinutes", dealerService.ServiceTimeMinutes);
+                    insertCommand.Parameters.Add("@ServiceFee", dealerService.ServiceFee);
+                    insertCommand.Parameters.Add("@DealerDealerID", dealer.DealerID);
+
+                    insertCommand.Connection.Open();
+                    result = insertCommand.ExecuteNonQuery();
+                    insertCommand.Connection.Close();
+
+                }
+            }
+
+            
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+
+        }
+
+        public List<DealerService> GetDealerAllServices(int dealerDealerID)
+        {
+            List<DealerService> dealerAllServices = new List<DealerService>();
+            DealerService dealerService = null;
+
+            connection.ConnectionString = connStr;
+            connection.Open();
+
+            SqlCommand command = new SqlCommand("SELECT ServiceID, ServiceName, ServiceTimeMinutes, ServiceFee, DealerDealerID FROM [DealerService] WHERE DealerDealerID = @DealerDealerID", connection);
+            command.Parameters.AddWithValue("@DealerDealerID", dealerDealerID);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    dealerService = new DealerService()
+                    {
+                        ServiceID = Convert.ToInt32(reader["ServiceID"].ToString()),
+                        ServiceName = reader["ServiceName"].ToString(),
+                        ServiceTimeMinutes = Convert.ToInt32(reader["ServiceTimeMinutes"].ToString()),
+                        ServiceFee = Convert.ToDouble(reader["ServiceFee"].ToString()),
+                        DealerDealerID = Convert.ToInt32(reader["DealerDealerID"].ToString())
+                    };
+                    dealerAllServices.Add(dealerService);
+                }
+            }
+
+            connection.Close();
+
+            return dealerAllServices;
+        }
+
+        public bool AddNewDealerServiceDealer(DealerService_Dealer dealerService_Dealer)
+        {
+            int result;
+
+            using (connection)
+            {
+
+                using (SqlCommand insertCommand = connection.CreateCommand())
+
+                {
+                    insertCommand.CommandText = "INSERT INTO [DealerService_Dealer](DealerServiceServiceID, DealerDealerID) VALUES (@DealerServiceServiceID, @DealerDealerID)";
+                    insertCommand.Parameters.Add("@DealerServiceServiceID", dealerService_Dealer.DealerServiceServiceID);
+                    insertCommand.Parameters.Add("@DealerDealerID", dealerService_Dealer.DealerDealerID);
+
+                    insertCommand.Connection.Open();
+                    result = insertCommand.ExecuteNonQuery();
+                    insertCommand.Connection.Close();
+
+                }
+            }
+
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+
+
+
         public List<Dealer> GetSearchResultDealer(string inputText)
         {
             List<Dealer> searchResults = new List<Dealer>();
@@ -150,6 +242,37 @@ namespace BerberistanWeb
             connection.Close();
 
             return user;
+        }
+
+        public Dealer GetDealer(int userUserID)
+        {
+            Dealer dealer = null;
+
+            connection.Open();
+
+            SqlCommand command = new SqlCommand("SELECT DealerID, DealerName, PhoneNumber, City, District, Photo, UserUserID FROM [Dealer] WHERE UserUserID = @UserUserID", connection);
+            command.Parameters.AddWithValue("@UserUserID", userUserID);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    dealer = new Dealer()
+                    {
+                        DealerID = Convert.ToInt32(reader["DealerID"].ToString()),
+                        DealerName = reader["DealerName"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
+                        City = reader["City"].ToString(),
+                        District = reader["District"].ToString(),
+                        Photo = Encoding.ASCII.GetBytes(reader["Photo"].ToString()),
+                        UserUserID = Convert.ToInt32(reader["UserUserID"].ToString()),
+                    };
+                }
+            }
+
+            connection.Close();
+
+            return dealer;
         }
     }
 }
