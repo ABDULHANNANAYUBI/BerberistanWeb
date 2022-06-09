@@ -186,10 +186,20 @@ namespace BerberistanWeb
             }
             else
             {
-                lnk.BackColor = System.Drawing.Color.FromArgb(unchecked((int)0x99ccff));
-                lnk.CssClass = "buttonII";
-                isTrue = false;
-                selectedTime = lnk.Text.ToString();
+                if(lnk.BackColor == System.Drawing.Color.Red)
+                {
+                    lnk.BackColor = System.Drawing.Color.FromArgb(unchecked((int)0x99ccff));
+                    lnk.CssClass = "buttonII";
+                    isTrue = false;
+                    selectedTime = lnk.Text.ToString();
+                }
+                else
+                {
+                    lnk.BackColor = System.Drawing.Color.Red;
+                    isTrue = true;
+                    selectedTime = lnk.Text.ToString();
+                }
+                
             }
             
         }
