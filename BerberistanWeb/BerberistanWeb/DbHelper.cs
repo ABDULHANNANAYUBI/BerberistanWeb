@@ -71,6 +71,7 @@ namespace BerberistanWeb
                     insertCommand.Connection.Open();
                     result = insertCommand.ExecuteNonQuery();
                     insertCommand.Connection.Close();
+
                 }
             }
         }

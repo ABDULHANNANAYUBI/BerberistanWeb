@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.ServiceModel.Syndication;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -50,9 +51,6 @@ namespace BerberistanWeb
                 setDailyTimesWithSelectedDay = new List<string>();
                 allApointments = new List<Appointment>();
                 dealerServices = new List<DealerService>();
-                selectedServices = new List<bool>();
-                user = new User();
-                selectedDate = new DateTime();
                 FillDetails();
                 if (IsPostBack)
                 {
@@ -63,7 +61,12 @@ namespace BerberistanWeb
                 if (!IsPostBack)
                 {
                     FillCheckboxList();
+                    user = new User();
+                    selectedServices = new List<bool>();
+                    selectedDate = new DateTime();
+                    user = new User() { UserID = 1 };
                 }
+                //this.popup.Visible = false;
             }
             catch (Exception ex)
             {
@@ -232,30 +235,38 @@ namespace BerberistanWeb
 
         protected void checkout_Click(object sender, EventArgs e)
         {
-            user = (User)Session["User"];
-
-            for (int i = 0; i < CheckBoxList1.Items.Count; i++)
+            try
             {
-                if (CheckBoxList1.Items[i].Selected == true)// getting selected value from CheckBox List  
-                {
-                    dbHelper.InsertServices(dealerServices[i], user.UserID);
-                }
-            }
-            String tempTime = selectedDate.ToString() + selectedTime.ToString();
-            int j = 0;
-            for(j = 0; j < setDailyTimesWithSelectedDay.Count; j++)
-            {
-                if(setDailyTimesWithSelectedDay[j] == tempTime)
-                {
-                    break;
-                }
-            }
-            String EndTime = setDailyTimesWithSelectedDay[j].ToString();
+                //user = (User)Session["User"];
 
-            DateTime tempStartTime = Convert.ToDateTime(tempTime);
-            DateTime tempEndTime = Convert.ToDateTime(selectedDate.ToString() + EndTime);
-            dbHelper.InsertAppointment(new Appointment(1, tempStartTime, tempEndTime, ID, user.UserID));
-            Response.Redirect("Home.aspx");
+                //if (user == null)
+                //{
+                //    user = new User();
+                //    user.UserID = 1;
+                //}
+                //for (int i = 0; i < CheckBoxList1.Items.Count; i++)
+                //{
+                //    if (CheckBoxList1.Items[i].Selected == true)// getting selected value from CheckBox List  
+                //    {
+                //        dbHelper.InsertServices(dealerServices[i], user.UserID);
+                //    }
+                //}
+                //String tempTime = selectedDate.ToString() + selectedTime.ToString();
+                //var StartDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, Convert.ToDateTime(selectedTime).Hour, Convert.ToDateTime(selectedTime).Minute, selectedDate.Second);
+                //var EndMin = Convert.ToDateTime(selectedTime).Minute + 30;
+                //var EndDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, Convert.ToDateTime(selectedTime).Hour, EndMin, selectedDate.Second);
+                //DbHelper temp = new DbHelper();
+                //temp.InsertAppointment(new Appointment(1, StartDate, EndDate, ID, user.UserID));
+                this.form1.Visible = false;
+                //this.popup.Visible = true;
+                Thread.Sleep(2000);
+                //Response.Redirect("Home.aspx");
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
         }
     }
 

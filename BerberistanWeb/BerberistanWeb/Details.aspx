@@ -13,11 +13,16 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/details.css" />
-
     <link rel="icon" href="images/icons/berberistan.ico" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <div runat="server" id="popup" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
         <div style="display: flex; flex-direction: column; width: 100%;">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="Calender" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Randevu Tarihi
@@ -37,14 +42,15 @@
                     </button>
                     <div id="services" class="col-4" runat="server">
                     </div>
-                    <div style="align-content:center; text-align:center">
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" style="color:black;" CssClass="chkChoice" Font-Bold="true" Font-Size="large" Width="100%" CellPadding="15" ></asp:CheckBoxList>
-                        <asp:LinkButton class="btn btn-secondary" style="color: white"  type="button" ID="checkout" runat="server" aria-haspopup="true" aria-expanded="false" OnClick="checkout_Click" > Randevu Al </asp:LinkButton>
-                        
+                    <div style="align-content: center; text-align: center">
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" Style="color: black;" CssClass="chkChoice" Font-Bold="true" Font-Size="large" Width="100%" CellPadding="15"></asp:CheckBoxList>
+                        <asp:LinkButton class="btn btn-secondary" Style="color: white" ID="checkout" runat="server" aria-haspopup="true" aria-expanded="false" OnClick="checkout_Click"> Randevu Al </asp:LinkButton>
                     </div>
+
                 </div>
             </div>
         </div>
     </form>
+
 </body>
 </html>
