@@ -116,8 +116,6 @@ C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.dll
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.pdb
 C:\Users\danya\OneDrive\Masaüstü\BerberistanWeb\BerberistanWeb\BerberistanWeb\obj\Debug\BerberistanWeb.csprojAssemblyReference.cache
-C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\BerberistanWeb.dll.config
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\BerberistanWeb.dll
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\BerberistanWeb.pdb
@@ -134,6 +132,8 @@ C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\M
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.Managed.Core.targets
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\Ss3mi\Desktop\BerberistanWeb\BerberistanWeb\BerberistanWeb\bin\roslyn\Microsoft.Win32.Primitives.dll

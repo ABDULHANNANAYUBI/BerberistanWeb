@@ -8,6 +8,14 @@ body {
     background: #2a2e32;
 }
 
+.chkChoice input {
+    margin-left: -20px;
+}
+
+.chkChoice td {
+    padding-left: 20px;
+}
+
 .text-small {
     font-size: 0.9rem;
 }

@@ -11,6 +11,16 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.mycheckbox input[type="checkbox"] {
+	margin-right: 5px;
+}
+.chkChoice input {
+	margin-left: -20px;
+}
+
+.chkChoice td {
+	padding-left: 20px;
+}
 body {
 	font-family: "Muli-Regular";
 	font-size: 14px;

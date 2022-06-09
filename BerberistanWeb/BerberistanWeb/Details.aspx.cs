@@ -17,13 +17,18 @@ namespace BerberistanWeb
         public Dealer dealer { get; set; }
         public DbHelper dbHelper { get; set; }
         public List<string> getDailyTimes { get; set; }
-        public List<string> setDailyTimesWithSelectedDay { get; set; }
+        public List<String> setDailyTimesWithSelectedDay { get; set; }
         public List<String> daysOfAppointment { get; set; }
         public List<DealerService> dealerServices { get; set; }
 
         public List<Appointment> allApointments { get; set; }
         public List<Boolean> selectedServices { get; set; }
         public int Count = 0;
+        public static Boolean isTrue = false;
+
+        public static DateTime selectedDate;
+        public static String selectedTime = "";
+        public User user { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -46,14 +51,18 @@ namespace BerberistanWeb
                 allApointments = new List<Appointment>();
                 dealerServices = new List<DealerService>();
                 selectedServices = new List<bool>();
+                user = new User();
+                selectedDate = new DateTime();
                 FillDetails();
                 if (IsPostBack)
                 {
-                   FillasButtons();
+                   FillAsButtons();
+                    //FillTheServices();
                    //FillTheServices();
                 }
                 if (!IsPostBack)
                 {
+                    FillCheckboxList();
                 }
             }
             catch (Exception ex)
@@ -62,8 +71,6 @@ namespace BerberistanWeb
             }
 
         }
-
-
         public void FillDetails()
         {
             dealer = dbHelper.GetDealer(ID);
@@ -95,24 +102,20 @@ namespace BerberistanWeb
             getDailyTimes = Temp;
         }
 
-
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            //DateTime tomorrow = DateTime.Today.AddDays(1);
-            //Calendar1.TodaysDate = tomorrow;
-            DateTime selected = Calendar1.SelectedDate;
+            selectedDate = Calendar1.SelectedDate;
             List<Appointment> temp = new List<Appointment>();
             foreach (var item in allApointments)
             {
                 var item1 = item.AppointmentStartTime.ToShortDateString();
-                var item2 = selected.ToShortDateString();
-                if (item.AppointmentStartTime.ToShortDateString() == selected.ToShortDateString())
+                var item2 = selectedDate.ToShortDateString();
+                if (item.AppointmentStartTime.ToShortDateString() == selectedDate.ToShortDateString())
                 {
                     temp.Add(item);
                 }
             }
             allApointments = temp;
-            //setFreeTimes(item.AppointmentStartTime.Day.ToString());
             setFreeTimes();
         }
         public void setFreeTimes()
@@ -123,7 +126,6 @@ namespace BerberistanWeb
             {
                 tempAppointmentTimes.Add(appointment.AppointmentStartTime.ToShortTimeString().Replace("AM", "").Replace("PM", "").Replace(" ", ""));
             }
-
             foreach (var item in getDailyTimes)
             {
                 foreach (var item2 in tempAppointmentTimes)
@@ -138,9 +140,8 @@ namespace BerberistanWeb
                     }
                 }
             }
-
         }
-        public void FillasButtons()
+        public void FillAsButtons()
         {
             this.collection.Controls.Clear();
             setFreeTimes();
@@ -165,53 +166,61 @@ namespace BerberistanWeb
         private void Lnk_Click(object sender, EventArgs e)
         {
             LinkButton lnk = sender as LinkButton;
-            if (lnk.BackColor == System.Drawing.Color.Red)
+            if (!isTrue)
             {
-                lnk.BackColor = System.Drawing.Color.FromArgb(unchecked((int)0x99ccff));
-                lnk.CssClass = "buttonII";
-                FillTheServices();
+                if (lnk.BackColor == System.Drawing.Color.Red)
+                {
+                    isTrue = false;
+                    lnk.BackColor = System.Drawing.Color.FromArgb(unchecked((int)0x99ccff));
+                    lnk.CssClass = "buttonII";
+                }
+                else
+                {
+                    lnk.BackColor = System.Drawing.Color.Red;
+                    isTrue = true;
+                    selectedTime = lnk.Text.ToString();
+                }
             }
             else
             {
-                lnk.BackColor = System.Drawing.Color.Red;
-                FillTheServices();
+                lnk.BackColor = System.Drawing.Color.FromArgb(unchecked((int)0x99ccff));
+                lnk.CssClass = "buttonII";
+                isTrue = false;
+                selectedTime = lnk.Text.ToString();
             }
+            
         }
 
-        
-        public void FillTheServices()
-        {
-            this.services.Controls.Clear();
-            for(int i = 0; i < dealerServices.Count; i++)
-            {
-                CheckBox checkBox = new CheckBox();
-                checkBox.ID = i.ToString() + Guid.NewGuid().ToString("N");
-                checkBox.Text = dealerServices[i].ServiceName.ToString() + " Price : " + dealerServices[i].ServiceFee.ToString();
-                checkBox.Style.Add("padding", "5px");
-                checkBox.Style.Add("color", "black");
-                checkBox.CssClass = "form - check";
-                this.services.Controls.Add(checkBox);
-            }
-        }
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Console.WriteLine("checked");
         }
 
-        public void GetServices()
+        protected void FillCheckboxList()
         {
-            foreach (Control ctl in form1.FindControl("services").Controls)
+            List<String> temp = new List<string>(); 
+            foreach(var item in dealerServices)
             {
-                if (ctl is CheckBox)
-                {
-                    if (((CheckBox)ctl).Checked)
-                    {
-                        selectedServices.Add(true);
-                    }
-                }
+                temp.Add(item.ServiceName.ToString());
             }
+            CheckBoxList1.DataSource = temp;
+            CheckBoxList1.DataBind();
         }
+
+        //public void GetServices()
+        //{
+        //    foreach (Control ctl in form1.FindControl("services").Controls)
+        //    {
+        //        if (ctl is CheckBox)
+        //        {
+        //            if (((CheckBox)ctl).Checked)
+        //            {
+        //                selectedServices.Add(true);
+        //            }
+        //        }
+        //    }
+        //}
 
         public void SetCheckoutButton()
         {
@@ -223,8 +232,31 @@ namespace BerberistanWeb
 
         protected void checkout_Click(object sender, EventArgs e)
         {
-            GetServices();
+            user = (User)Session["User"];
 
+            for (int i = 0; i < CheckBoxList1.Items.Count; i++)
+            {
+                if (CheckBoxList1.Items[i].Selected == true)// getting selected value from CheckBox List  
+                {
+                    dbHelper.InsertServices(dealerServices[i], user.UserID);
+                }
+            }
+            String tempTime = selectedDate.ToString() + selectedTime.ToString();
+            int j = 0;
+            for(j = 0; j < setDailyTimesWithSelectedDay.Count; j++)
+            {
+                if(setDailyTimesWithSelectedDay[j] == tempTime)
+                {
+                    break;
+                }
+            }
+            String EndTime = setDailyTimesWithSelectedDay[j].ToString();
+
+            DateTime tempStartTime = Convert.ToDateTime(tempTime);
+            DateTime tempEndTime = Convert.ToDateTime(selectedDate.ToString() + EndTime);
+            dbHelper.InsertAppointment(new Appointment(1, tempStartTime, tempEndTime, ID, user.UserID));
+            Response.Redirect("Home.aspx");
         }
     }
+
 }

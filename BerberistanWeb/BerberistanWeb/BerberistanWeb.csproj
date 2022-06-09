@@ -79,6 +79,7 @@
     <Content Include="css\bootstrap\mixins\_visibility.css" />
     <Content Include="css\bootstrap\utilities\_stretched-link.css" />
     <Content Include="css\bootstrap\_media.css" />
+    <Content Include="css\details.css" />
     <Content Include="css\main.css" />
     <Content Include="css\style.css" />
     <Content Include="Details.aspx" />

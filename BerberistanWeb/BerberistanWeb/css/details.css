@@ -1,0 +1,9 @@
+﻿body {
+}
+.chkChoice input {
+    margin-left: -20px;
+}
+
+.chkChoice td {
+    padding-left: 20px;
+}

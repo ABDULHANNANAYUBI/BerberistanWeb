@@ -55,6 +55,46 @@ namespace BerberistanWeb
 
         }
 
+        public void InsertAppointment(Appointment app)
+        {
+            int result;
+            using (connection)
+            {
+                using (SqlCommand insertCommand = connection.CreateCommand())
+                {
+                    insertCommand.CommandText = "INSERT INTO [Appointment](AppointmentStartTime, AppointmentFinishTime, DealerDealerID, UserUserID) VALUES (@AppointmentStartTime, @AppointmentFinishTime, @DealerDealerID, @UserUserID)";
+                    insertCommand.Parameters.Add("@AppointmentStartTime", app.AppointmentStartTime);
+                    insertCommand.Parameters.Add("@AppointmentFinishTime", app.AppointmentEndTime);
+                    insertCommand.Parameters.Add("@DealerDealerID", app.DealerDealerID);
+                    insertCommand.Parameters.Add("@UserUserID", app.UserUserID);
+
+                    insertCommand.Connection.Open();
+                    result = insertCommand.ExecuteNonQuery();
+                    insertCommand.Connection.Close();
+                }
+            }
+        }
+
+        public void InsertServices(DealerService dealerService, int userID)
+        {
+            int result;
+            using (connection)
+            {
+                using (SqlCommand insertCommand = connection.CreateCommand())
+                {
+                    insertCommand.CommandText = "INSERT INTO [CustomerService](DealerID,UserID , ServiceName, ServiceFee) VALUES (@DealerID, @UserID, @ServiceName, @ServiceFee)";
+                    insertCommand.Parameters.Add("@DealerID", dealerService.DealerDealerID);
+                    insertCommand.Parameters.Add("@UserID", userID);
+                    insertCommand.Parameters.Add("@ServiceName", dealerService.ServiceName);
+                    insertCommand.Parameters.Add("@ServiceFee", dealerService.ServiceFee);
+
+                    insertCommand.Connection.Open();
+                    result = insertCommand.ExecuteNonQuery();
+                    insertCommand.Connection.Close();
+                }
+            }
+        }
+
         public bool AddNewDealer(Dealer dealer)
         {
             int result;
