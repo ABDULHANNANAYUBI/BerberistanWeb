@@ -88,9 +88,7 @@
         <div class="container mt-4">
             <div class="row">
                 <%
-
                     int resultCount = dealerSearchResults.Count == 0 ? 9 : dealerSearchResults.Count;
-
                     for (int i = 0; i < resultCount; i++)
                     {
                 %>
@@ -101,7 +99,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= dealerSearchResults[i].DealerName %></h5>
                             <p class="card-text" style="margin: -20px 0 0 0"><%= (dealerSearchResults[i].District + " / " + dealerSearchResults[i].City) %></p>
-                            <a href="#" class="buttonII btn-primary mt-1">Bayiyi incele</a>
+                            <a href="Details.aspx?id=<%= dealerSearchResults[i].DealerID %>" class="buttonII btn-primary mt-1" >Bayiyi incele</a>
                         </div>
                     </div>
                 </div>

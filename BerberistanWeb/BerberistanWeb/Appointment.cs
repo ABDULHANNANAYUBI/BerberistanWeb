@@ -27,5 +27,9 @@ namespace BerberistanWeb
             this.dealerDealerID = dealerDealerID;
             this.userUserID = userUserID;
         }
+
+        public Appointment()
+        {
+        }
     }
 }

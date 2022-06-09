@@ -75,7 +75,6 @@ namespace BerberistanWeb
                     insertCommand.Connection.Open();
                     result = insertCommand.ExecuteNonQuery();
                     insertCommand.Connection.Close();
-
                 }
             }
 
@@ -182,7 +181,7 @@ namespace BerberistanWeb
         {
             List<Dealer> searchResults = new List<Dealer>();
             Dealer dealer = null;
-
+            //if (inputText == "") return null;
             connection.Open();
 
             SqlCommand command = new SqlCommand("SELECT DealerID, DealerName, PhoneNumber, City, District, Photo, UserUserID FROM [Dealer] WHERE DealerName LIKE '%" + inputText + "%'", connection);
@@ -244,10 +243,41 @@ namespace BerberistanWeb
             return user;
         }
 
+
+        public List<Appointment> GetAppointments(int dealerId)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            Appointment appointment = null;
+
+            connection.ConnectionString = connStr;
+            connection.Open();
+
+            SqlCommand command = new SqlCommand("SELECT AppointmentID, AppointmentStartTime, AppointmentFinishTime, DealerDealerID, UserUserID FROM [Appointment] WHERE DealerDealerID = @DealerDealerID", connection);
+            command.Parameters.AddWithValue("@DealerDealerID", dealerId);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    appointment = new Appointment()
+                    {
+                        AppointmentID = Convert.ToInt32(reader["AppointmentID"]),
+                        AppointmentStartTime = (DateTime)reader["AppointmentStartTime"],
+                        AppointmentEndTime = (DateTime)(reader["AppointmentFinishTime"]),
+                        DealerDealerID = Convert.ToInt32(reader["DealerDealerID"].ToString()),
+                        UserUserID = Convert.ToInt32(reader["UserUserID"].ToString())
+                    };
+                    appointments.Add(appointment);
+                }
+            }
+
+            connection.Close();
+            return appointments;
+        }
         public Dealer GetDealer(int userUserID)
         {
             Dealer dealer = null;
-
+            if (userUserID == 0) return null;
             connection.Open();
 
             SqlCommand command = new SqlCommand("SELECT DealerID, DealerName, PhoneNumber, City, District, Photo, UserUserID FROM [Dealer] WHERE UserUserID = @UserUserID", connection);

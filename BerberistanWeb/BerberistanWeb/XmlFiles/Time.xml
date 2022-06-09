@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Times>
+  <Time>
+    <StartTime>1/1/2022 12:00:00 AM</StartTime>
+    <FinishTime>1/1/2022 12:00:00 AM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>1</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 3:00:00 PM</StartTime>
+    <FinishTime>1/1/2022 3:30:00 PM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>2</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 12:00:00 AM</StartTime>
+    <FinishTime>1/1/2022 12:00:00 AM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>1</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 3:00:00 PM</StartTime>
+    <FinishTime>1/1/2022 3:30:00 PM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>2</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 12:00:00 AM</StartTime>
+    <FinishTime>1/1/2022 12:00:00 AM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>1</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 3:00:00 PM</StartTime>
+    <FinishTime>1/1/2022 3:30:00 PM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>2</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 12:00:00 AM</StartTime>
+    <FinishTime>1/1/2022 12:00:00 AM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>1</UserID>
+  </Time>
+  <Time>
+    <StartTime>1/1/2022 3:00:00 PM</StartTime>
+    <FinishTime>1/1/2022 3:30:00 PM</FinishTime>
+    <DealerID>1</DealerID>
+    <UserID>2</UserID>
+  </Time>
+</Times>

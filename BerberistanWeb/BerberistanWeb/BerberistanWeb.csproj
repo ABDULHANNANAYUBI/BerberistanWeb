@@ -44,6 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Syndication, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -77,6 +81,7 @@
     <Content Include="css\bootstrap\_media.css" />
     <Content Include="css\main.css" />
     <Content Include="css\style.css" />
+    <Content Include="Details.aspx" />
     <Content Include="fonts\linearicons\fonts\Linearicons-Free.svg" />
     <Content Include="fonts\linearicons\Read Me.txt" />
     <Content Include="fonts\linearicons\style.css" />
@@ -99,6 +104,7 @@
     <Content Include="Register.aspx" />
     <Content Include="RegisterBarber.aspx" />
     <Content Include="Web.config" />
+    <Content Include="XmlFiles\Time.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
@@ -113,6 +119,13 @@
     <Compile Include="Dealer.cs" />
     <Compile Include="DealerService.cs" />
     <Compile Include="DealerService_Dealer.cs" />
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
