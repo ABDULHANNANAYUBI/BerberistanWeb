@@ -16,13 +16,15 @@
     <link rel="icon" href="images/icons/berberistan.ico" />
 </head>
 <body>
+    <div runat="server" visible="false" id="popup" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Randevunuz başarılı bir şekilde kaydedilmiştir. </h4>
+        <h5> <% =selectedDate.ToString() %> tarhihinde <%= selectedTime.ToString() %> saatinde <%= dealer.DealerName.ToString() %> de oluşmuştur.</h5>
+        <hr>
+        <p class="mb-0"><%= dealer.District.ToString() %> adresinde gidebilirsiniz. </p>
+        <a href="Home.aspx" style="font-size:x-large; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color:green"> Ana sayfaya dönmek için tıklayınız.</a>
+    </div>
+
     <form id="form1" runat="server">
-        <div runat="server" id="popup" class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-            <hr>
-            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-        </div>
         <div style="display: flex; flex-direction: column; width: 100%;">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="Calender" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Randevu Tarihi

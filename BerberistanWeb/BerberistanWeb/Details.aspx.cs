@@ -21,7 +21,6 @@ namespace BerberistanWeb
         public List<String> setDailyTimesWithSelectedDay { get; set; }
         public List<String> daysOfAppointment { get; set; }
         public List<DealerService> dealerServices { get; set; }
-
         public List<Appointment> allApointments { get; set; }
         public List<Boolean> selectedServices { get; set; }
         public int Count = 0;
@@ -55,8 +54,6 @@ namespace BerberistanWeb
                 if (IsPostBack)
                 {
                    FillAsButtons();
-                    //FillTheServices();
-                   //FillTheServices();
                 }
                 if (!IsPostBack)
                 {
@@ -66,7 +63,6 @@ namespace BerberistanWeb
                     selectedDate = new DateTime();
                     user = new User() { UserID = 1 };
                 }
-                //this.popup.Visible = false;
             }
             catch (Exception ex)
             {
@@ -150,7 +146,6 @@ namespace BerberistanWeb
             setFreeTimes();
             for (int i = 0; i < setDailyTimesWithSelectedDay.Count; i++)
             {
-                //createDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
                 System.Web.UI.HtmlControls.HtmlGenericControl createDiv =
                  new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
                 createDiv.Attributes["class"] = "col-2";
@@ -195,9 +190,13 @@ namespace BerberistanWeb
                 }
                 else
                 {
-                    lnk.BackColor = System.Drawing.Color.Red;
-                    isTrue = true;
-                    selectedTime = lnk.Text.ToString();
+                    if (isTrue)
+                    {
+                        lnk.BackColor = System.Drawing.Color.Red;
+                        isTrue = true;
+                        selectedTime = lnk.Text.ToString();
+                    }
+                    
                 }
                 
             }
@@ -220,20 +219,6 @@ namespace BerberistanWeb
             CheckBoxList1.DataSource = temp;
             CheckBoxList1.DataBind();
         }
-
-        //public void GetServices()
-        //{
-        //    foreach (Control ctl in form1.FindControl("services").Controls)
-        //    {
-        //        if (ctl is CheckBox)
-        //        {
-        //            if (((CheckBox)ctl).Checked)
-        //            {
-        //                selectedServices.Add(true);
-        //            }
-        //        }
-        //    }
-        //}
 
         public void SetCheckoutButton()
         {
@@ -267,9 +252,8 @@ namespace BerberistanWeb
                 //var EndDate = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, Convert.ToDateTime(selectedTime).Hour, EndMin, selectedDate.Second);
                 //DbHelper temp = new DbHelper();
                 //temp.InsertAppointment(new Appointment(1, StartDate, EndDate, ID, user.UserID));
+                this.popup.Visible = true;
                 this.form1.Visible = false;
-                //this.popup.Visible = true;
-                Thread.Sleep(2000);
                 //Response.Redirect("Home.aspx");
             }
             catch (Exception ex)
